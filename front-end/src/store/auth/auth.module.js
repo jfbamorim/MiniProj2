@@ -74,9 +74,11 @@ const actions = {
 export const mutations = {
   [AUTH_LOGIN_SUCCESS]: (state, data) => {
     state.token = data.token;
-    localStorage.STORAGE_ACCESS_TOKEN = data.token;
+    //localStorage.STORAGE_ACCESS_TOKEN = data.token;
+    localStorage.setItem(STORAGE_ACCESS_TOKEN, data.token);
     state.profile = data.profile;
-    localStorage.STORAGE_USER_PROFILE = JSON.stringify(data.profile);
+    //localStorage.STORAGE_USER_PROFILE = JSON.stringify(data.profile);
+    localStorage.setItem(STORAGE_USER_PROFILE, JSON.stringify(data.profile));
   },
 
   [AUTH_LOGOUT_SUCCESS]: state => {
